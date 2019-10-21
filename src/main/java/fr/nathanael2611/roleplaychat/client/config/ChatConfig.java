@@ -21,15 +21,17 @@ public class ChatConfig {
 
     private FileInputStream input;
 
-    public ChatConfig(File configFile) throws Exception {
+    public ChatConfig(File configFile) throws Exception
+    {
         this.configFile = configFile;
         reload();
-        chatTypes = new ChatType[]{
+        chatTypes = new ChatType[] {
                 hrp, normal, shout, whisp, action
         };
     }
 
-    public void reload() throws Exception {
+    public void reload() throws Exception
+    {
         input = new FileInputStream(configFile);
         properties.load(
                 new InputStreamReader(input, Charset.forName("UTF-8"))

@@ -30,17 +30,21 @@ public class RolePlayChat {
     private static ChatConfig config;
 
     @Mod.EventHandler
-    public void preInitialization(FMLPreInitializationEvent e){
+    public void preInitialization(FMLPreInitializationEvent e)
+    {
         proxy.preInitialization(e.getSuggestedConfigurationFile());
         RolePlayChatPacketHandler.initPackets();
-        if(!e.getSuggestedConfigurationFile().exists()) {
-            try {
+        if(!e.getSuggestedConfigurationFile().exists())
+        {
+            try
+            {
                 e.getSuggestedConfigurationFile().createNewFile();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
-        try {
+        try
+        {
             config = new ChatConfig(e.getSuggestedConfigurationFile());
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -48,22 +52,20 @@ public class RolePlayChat {
     }
 
     @Mod.EventHandler
-    public void initialization(FMLInitializationEvent e){
+    public void initialization(FMLInitializationEvent e)
+    {
         proxy.initialization();
     }
 
-    public CommonProxy getProxy() {
-        return proxy;
-    }
 
-    public static ChatConfig getConfig() {
+    public static ChatConfig getConfig()
+    {
         return config;
     }
 
     @Mod.EventHandler
-    public void onServerStarting(FMLServerStartingEvent e){
-        e.registerServerCommand(
-                new CommandSetRPName()
-        );
+    public void onServerStarting(FMLServerStartingEvent e)
+    {
+        e.registerServerCommand(new CommandSetRPName());
     }
 }

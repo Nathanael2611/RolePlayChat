@@ -33,7 +33,7 @@ repositories{
     }
 }
 dependencies {
-    compile 'simpledatabasemanager:simpledatabasemanager:1.1'
+    compile 'simpledatabasemanager:simpledatabasemanager:2.1'
 }
 
 processResources {
